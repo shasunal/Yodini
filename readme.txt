@@ -14,4 +14,4 @@ git add .
 git commit -m ""
 git push
 
-go to github and do pull request and merge
+go to github and do new pull request, choose yourself, and merge
