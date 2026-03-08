@@ -1,10 +1,11 @@
 {
   "name": "yodini",
   "version": "1.0.0",
-  "description": "",
+  "description": "one time setup:\r check what branch you are on: git branch\r switch to main: git checkout main\r pull from main updates: git pull origin main\r create your branch: git checkout -b your-name-branch\r do this one time to connect your branch to github: git push -u origin your-branch-name",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
