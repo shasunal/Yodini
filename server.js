@@ -21,7 +21,6 @@ app.set("view engine", "njk");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-
 //routes
 app.get("/", (request, response) => {
   response.render("index.njk", { title: "Home" });
@@ -35,7 +34,21 @@ app.get("/page3", (request, response) => {
   response.render("page3.njk", { title: "Page 3" });
 });
 
-
+// connecting forismatic quote api (no key needed)
+// reading is the quote just in context of the project i used "reading"
+// use post? or get?
+app.get("/reading", async (req, res) => {
+  const reading = await fetch(
+    // pulls random quote based on 3 params:
+    // 1: method name
+    // 2: response format
+    // 3: response language 
+    "http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en"
+  );
+  const quote = await reading.text();
+  const onlyQuote = quote.split('(')[0]
+  res.send(onlyQuote)
+});
 
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
