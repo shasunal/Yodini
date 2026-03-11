@@ -57,3 +57,41 @@
     left:0%;
     width: 40%;
 }
+
+.tarot-grid{
+    position: absolute;
+
+    bottom: 5%;
+    left:50%;
+    transform: translateX(-50%);
+    display:flex;
+  gap:40px;
+  border: 2px red solid;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.stack-cards{
+    position: absolute;
+    bottom: 5%;
+    left:10%;
+    border: 2px blue solid;
+    align-items: center;
+justify-content: center;
+}
+
+.tarot-card{
+   width: 150px; 
+   height: auto;
+ align-items: center;
+justify-content: center;
+}
+
+.cont-card{
+    width: 150px;
+    height: auto;
+    position:absolute;
+    bottom: 5%;
+    left:80%;
+}
