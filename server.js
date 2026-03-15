@@ -42,7 +42,7 @@ app.post("/inquiry", (request, response) => {
 
   database.insert(submission);
 
-  response.redirect("/page3");
+  response.redirect("/page2");
 });
 
 
