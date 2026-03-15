@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const stackDeck = document.querySelector('.stack-cards')
     const deck = document.querySelectorAll('.tarot-card')
     const ticket = document.querySelector('.cont-card')
+    const tarotCardImgs = ['chariot','hermit','judgement','magician','moon']
 
     //element:html where text will appear
     //text: the text that shows up
@@ -47,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const line2 = document.querySelector(".line-2");
     const line3 = document.querySelector(".line-3");
 
-
     // GSAP configuration
     let cards = gsap.timeline()
     let ticketCont = gsap.timeline()
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deck.forEach((tarot, index) => { // adds flip animation to all tarot cards
         if(tarot.parentElement != document.querySelector('.stack-cards')){ //ignores stack of cards
             
-            // MOVE TO CSS IF POSSIBLE
+            // MIGHT MOVE TO CSS
             stackDeck.style.zIndex = '-100' // NOTICE: THIS MADE STACK OF CARDS DISAPPEAR -touch base later
             tarot.style.zIndex = `-${index}0` // move actual tarot cards to top of stack pile
             tarot.style.cursor = 'pointer'
@@ -68,13 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
             cards.set(tarot, { // flip animation: ISSUE:: is pretty hardcoded translation & doesn't exactly align with the card-stack 
                 x: `-${(500+(200*(index-1)))}px`
                 ,rotation: Math.floor(Math.random() * 10) %2 == 0 ? Math.floor(Math.random() * 7) : -Math.floor(Math.random() * 7)
+                ,rotateY: -180
             })
             tarot.addEventListener('click', () => { 
                 cards.to(tarot, {
                     x: `0px`,
-                    rotateY: -180
+                    rotateY: 0
                 })
-                tarot.src= '/images/back-of-card.svg'
+
+                tarot.src= `/images/${tarotCardImgs[Math.floor(Math.random() * 4)]}.png`
+                
+                //  connects Yoda's dialogue with cards
                 if(index==0 && line1){
                     typeWriter(line1, "Your first card describes your current state.");
                 }else if(index==1 && line2){
