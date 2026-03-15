@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const deck = document.querySelectorAll('.tarot-card')
     const ticket = document.querySelector('.cont-card')
 
-
-    // SHASUNA's TEXT SPEECH
-
     //element:html where text will appear
     //text: the text that shows up
     //speed
