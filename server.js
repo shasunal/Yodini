@@ -34,15 +34,15 @@ app.get("/page3", (request, response) => {
   response.render("page3.njk", { title: "Page 3" });
 });
 
-app.post("/inquiry", (req, res) => {
+app.post("/inquiry", (request, response) => {
   let submission = {
-    name: req.body.name,
-    question: req.body.question,
+    name: request.body.name,
+    question: request.body.question,
   };
 
   database.insert(submission);
 
-  res.redirect("/");
+  response.redirect("/page3");
 });
 
 
