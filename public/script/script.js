@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tarot.addEventListener('click', () => { 
                 cards.to(tarot, {
                     x: `0px`,
-                    rotateY: 0
+                    rotateY: 0 
                 })
 
                 tarot.src= `/images/${tarotCardImgs[Math.floor(Math.random() * 4)]}.png`
