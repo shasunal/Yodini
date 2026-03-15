@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const line1 = document.querySelector(".line-1");
     const line2 = document.querySelector(".line-2");
     const line3 = document.querySelector(".line-3");
-
+    
 
     // GSAP configuration
     let cards = gsap.timeline()
