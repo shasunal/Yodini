@@ -5,10 +5,12 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 let nedb = require("@seald-io/nedb");
+let verdict = require("./public/script/verdict.js");
 
 //initialize
 const app = express();
 let database = new nedb({ filename: "data.db", autoload: true });
+
 
 //setup nunjucks
 nunjucks.configure("views", {
@@ -31,13 +33,27 @@ app.get("/page2", (request, response) => {
 });
 
 app.get("/page3", (request, response) => {
-  response.render("page3.njk", { title: "Page 3" });
+  let query = {};
+  database.find(query, (error, foundData) => {
+    if (error) {
+      response.send("error");
+    } else {
+      let formattedJSON = {
+        allData: foundData,
+      };
+      response.render("page3.njk", { data: formattedJSON.allData[formattedJSON.allData.length - 1] });
+    }
+  });
 });
 
+
 app.post("/inquiry", (request, response) => {
+  let randomVerdict = verdict[Math.floor(Math.random() * verdict.length)]
+
   let submission = {
     name: request.body.name,
     question: request.body.question,
+    reading: randomVerdict
   };
 
   database.insert(submission);
