@@ -55,9 +55,12 @@ font-style: normal;
 }
 
 .intro-text{
-
+    position: absolute;
     color: white;
     font-size: 3rem;
+   
+    left:55%;
+    top:30%;
 
 }
 .sub-intro-text{
@@ -71,7 +74,7 @@ font-style: normal;
     position: absolute;
     /* border: 2px red solid; */
     left:55%;
-    top:30%;
+    top:45%;
     color:white;
        justify-content: center;
     align-items: center;
@@ -163,4 +166,12 @@ justify-content: center;
 
 .final-verdict{
     position: absolute;
+z-index: 1000;
+}
+
+.verdict{
+    position:absolute;
+    z-index: 2000 !important;
+    color: black;
+    border: 2px red solid;
 }
