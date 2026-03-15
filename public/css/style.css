@@ -160,3 +160,7 @@ justify-content: center;
 .stack-card {
   cursor: pointer;
 }
+
+.final-verdict{
+    position: absolute;
+}
