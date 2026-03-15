@@ -7,6 +7,12 @@ font-weight: 400;
 font-style: normal;
 }
 
+.h1{
+    font-family: "quiet-sans", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
 .screen{
     position: relative;
     width: 100vw;
@@ -32,15 +38,15 @@ font-style: normal;
 }
 
 .button{
-    position: absolute;
-    top: 55%;
-    left:28%;
+  
     background-color: rgb(200, 10,200, 0.5);
     padding: 10px 10px;
     color: white;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 8px;
+    font-family: "quiet-sans", sans-serif;
+    
 }
 
 .button:hover{
@@ -55,14 +61,16 @@ font-style: normal;
 
 }
 .sub-intro-text{
+    text-align: center;
     font-size:1.2rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "quiet-sans", sans-serif;
+    padding-top: 1rem;
 }
 
 .intro-form{
     position: absolute;
-    border: 2px red solid;
-    left:50%;
+    /* border: 2px red solid; */
+    left:55%;
     top:30%;
     color:white;
        justify-content: center;
@@ -75,7 +83,7 @@ font-style: normal;
     gap:10px;
     justify-content: center;
     align-items: center;
-    border:2px blue solid;
+    /* border:2px blue solid; */
 }
 
 .yodini-form input,
@@ -118,20 +126,37 @@ font-style: normal;
     /* border: 2px blue solid; */
     align-items: center;
 justify-content: center;
+z-index: 1000;
 
+}
+.stack-card{
+    width:180px;
 }
 
 .tarot-card{
-   width: 180px; 
+   width: 160px; 
    height: auto;
  align-items: center;
 justify-content: center;
 }
 
 .cont-card{
-    width: 150px;
+    width: 300px;
     height: auto;
     position:absolute;
-    bottom: 5%;
-    left:80%;
+    bottom: 18%;
+    left:75%;
+}
+
+.tarot-prompts{
+   border: 2px blue solid;
+   position: absolute;
+   z-index: 200;
+   color: #FFFFFF;
+   bottom: 70%;
+   left:50%;
+   font-size: 2rem;
+}
+.stack-card {
+  cursor: pointer;
 }
