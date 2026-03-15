@@ -18,10 +18,18 @@
 
 }
 
+.yodini-intro{
+    position:absolute;
+    width:50%;
+    height:auto;
+    left:5%;
+    top:10%;
+}
+
 .button{
     position: absolute;
-    top: 50%;
-    left:35%;
+    top: 55%;
+    left:28%;
     background-color: rgb(200, 10,200, 0.5);
     padding: 10px 10px;
     color: white;
@@ -66,7 +74,7 @@
     transform: translateX(-50%);
     display:flex;
   gap:40px;
-  border: 2px red solid;
+  /* border: 2px red solid; */
   align-items: center;
   justify-content: center;
 }
@@ -76,13 +84,14 @@
     position: absolute;
     bottom: 5%;
     left:10%;
-    border: 2px blue solid;
+    /* border: 2px blue solid; */
     align-items: center;
 justify-content: center;
+
 }
 
 .tarot-card{
-   width: 150px; 
+   width: 180px; 
    height: auto;
  align-items: center;
 justify-content: center;
