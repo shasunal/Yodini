@@ -6,10 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     deck.forEach((tarot, index) => { // adds flip animation to all tarot cards
         if(tarot.parentElement != document.querySelector('.stack-cards')){ //ignores stack of cards
-            console.log(index, (tarot.x-500)-100)
             cards.set(tarot, {
-                x: `-${(tarot.x-500)-100}px`
-
+                x: `-${(250+(190*(index-1)))}px`
             })
             tarot.addEventListener('click', () => { 
                 cards.to(tarot, {
@@ -21,10 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 tarot.src= '/images/back-of-card.svg'
             })
         }
-        
     });
-    // deck.addEventListener('click', () => {
-
-        
-    // })
 });
