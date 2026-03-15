@@ -34,6 +34,18 @@ app.get("/page3", (request, response) => {
   response.render("page3.njk", { title: "Page 3" });
 });
 
+app.post("/inquiry", (req, res) => {
+  let submission = {
+    name: req.body.name,
+    question: req.body.question,
+  };
+
+  database.insert(submission);
+
+  res.redirect("/");
+});
+
+
 // connecting forismatic quote api (no key needed)
 // reading is the quote just in context of the project i used "reading"
 // use post? or get?

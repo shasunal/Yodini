@@ -13,5 +13,14 @@
 
 <a href = "/page2" class = "button">Continue</a>
 </div>
+<div>
+  <h1>What is your name and concern</h1>
+  <form action="/inquiry" method="POST">
+    <input type="text" name="name" placeholder="enter your name" />
+    <input type="text" name="question" placeholder="enter your question" />
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
 
 {% endblock %}
