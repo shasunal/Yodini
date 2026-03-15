@@ -2,6 +2,15 @@
     margin: 0;
     padding:0;
     overflow: hidden;
+    font-family: "cc-altogether-ooky", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.h1{
+    font-family: "quiet-sans", sans-serif;
+font-weight: 400;
+font-style: normal;
 }
 
 .screen{
@@ -9,6 +18,8 @@
     width: 100vw;
   height: 100vh;
 }
+
+
 
 .intro-bkg{
     position: absolute;
@@ -18,16 +29,24 @@
 
 }
 
+.yodini-intro{
+    position:absolute;
+    width:50%;
+    height:auto;
+    left:5%;
+    top:10%;
+}
+
 .button{
-    position: absolute;
-    top: 50%;
-    left:35%;
+  
     background-color: rgb(200, 10,200, 0.5);
     padding: 10px 10px;
     color: white;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-radius: 8px;
+    font-family: "quiet-sans", sans-serif;
+    
 }
 
 .button:hover{
@@ -36,14 +55,42 @@
 }
 
 .intro-text{
-    position: absolute;
-    top: 20%;
-    left: 45%;
+
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
 
 }
+.sub-intro-text{
+    text-align: center;
+    font-size:1.2rem;
+    font-family: "quiet-sans", sans-serif;
+    padding-top: 1rem;
+}
 
+.intro-form{
+    position: absolute;
+    /* border: 2px red solid; */
+    left:55%;
+    top:30%;
+    color:white;
+       justify-content: center;
+    align-items: center;
+}
+
+.yodini-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+    /* border:2px blue solid; */
+}
+
+.yodini-form input,
+.yodini-form button {
+  padding: 8px;
+  width: 300px;
+}
 .yodini-bkg{
     position: absolute;
     top:10%;
@@ -66,7 +113,7 @@
     transform: translateX(-50%);
     display:flex;
   gap:40px;
-  border: 2px red solid;
+  /* border: 2px red solid; */
   align-items: center;
   justify-content: center;
 }
@@ -76,22 +123,40 @@
     position: absolute;
     bottom: 5%;
     left:10%;
-    border: 2px blue solid;
+    /* border: 2px blue solid; */
     align-items: center;
 justify-content: center;
+z-index: 1000;
+
+}
+.stack-card{
+    width:180px;
 }
 
 .tarot-card{
-   width: 150px; 
+   width: 160px; 
    height: auto;
  align-items: center;
 justify-content: center;
 }
 
 .cont-card{
-    width: 150px;
+    width: 300px;
     height: auto;
     position:absolute;
-    bottom: 5%;
-    left:80%;
+    bottom: 18%;
+    left:75%;
+}
+
+.tarot-prompts{
+   border: 2px blue solid;
+   position: absolute;
+   z-index: 200;
+   color: #FFFFFF;
+   bottom: 70%;
+   left:50%;
+   font-size: 2rem;
+}
+.stack-card {
+  cursor: pointer;
 }
