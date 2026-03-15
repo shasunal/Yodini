@@ -167,11 +167,7 @@ justify-content: center;
 .final-verdict{
     position: absolute;
 z-index: 1000;
+border: 2px red solid;
 }
 
-.verdict{
-    position:absolute;
-    z-index: 2000 !important;
-    color: black;
-    border: 2px red solid;
-}
+
