@@ -61,6 +61,8 @@ app.post("/inquiry", (request, response) => {
   response.redirect("/page2");
 });
 
+// add a start over rooute/ delete that clears teh database
+
 
 // connecting forismatic quote api (no key needed)
 // reading is the quote just in context of the project i used "reading"
