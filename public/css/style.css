@@ -168,6 +168,21 @@ justify-content: center;
     position: absolute;
 z-index: 1000;
 border: 2px red solid;
+ left:45%;
+    top:25%;
+    color: white;
+    width:600px;
+}
+
+h2{
+   font-family: "cc-altogether-ooky", sans-serif; 
+   font-size: 3rem; 
+   letter-spacing:5px;
+}
+
+h3{
+   font-size: 2rem; 
+   letter-spacing:1px;
 }
 
 
