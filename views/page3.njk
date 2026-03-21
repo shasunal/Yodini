@@ -1,21 +1,16 @@
 {% extends "baseLayout.njk" %}
-
 {% block content %}
-<div class = "screen">
-  <img src = "/images/background2.svg" alt = "intro-background" class = "intro-bkg">
-<img src = "/images/yodini.svg" alt = "intro-background" class = "yodini-last">
+  <div class="screen">
+    <img src="/images/background2.svg" alt="intro-background" class="intro-bkg">
+      <img src="/images/yodini.svg" alt="intro-background" class="yodini-last">
+        <div id="finalVerdict" class="final-verdict">
+          <h2 id="verdictTitle">Hello, {{ data.name }}, previously you asked: {{ data.question }}?</h2>
+          <h3 id="verdictReading">{{ data.reading }}</h3>
+        </div>
+<div class = "ending-button">
+        <form action="/cleardata" method="POST">
+  <button type="submit">Restart</button>
+</form> </div>
 
-<div id="finalVerdict" class = "final-verdict">
- <h2 >Hello, {{data.name}}, previously you asked: {{data.question}}?</h2>
-  <h3>{{data.reading}}</h3>
-</div>
-
- 
-
-
-
-</div>
-
-
-
-{% endblock %}
+      </div>
+    {% endblock %}

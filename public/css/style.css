@@ -67,7 +67,7 @@ font-style: normal;
     text-align: center;
     font-size:1.2rem;
     font-family: "quiet-sans", sans-serif;
-    padding-top: 1rem;
+    padding-top: 3rem;
 }
 
 .intro-form{
@@ -96,7 +96,7 @@ font-style: normal;
 }
 .yodini-bkg{
     position: absolute;
-    top:10%;
+    bottom:0%;
     left:0%;
     width: 100%;
 }
@@ -152,13 +152,15 @@ justify-content: center;
 }
 
 .tarot-prompts{
-   border: 2px blue solid;
+   /* border: 2px blue solid; */
    position: absolute;
    z-index: 200;
    color: #FFFFFF;
    bottom: 70%;
    left:50%;
    font-size: 2rem;
+     font-family: "quiet-sans", sans-serif;
+     font-size: 1.5rem;
 }
 .stack-card {
   cursor: pointer;
@@ -167,22 +169,34 @@ justify-content: center;
 .final-verdict{
     position: absolute;
 z-index: 1000;
-border: 2px red solid;
+/* border: 2px red solid; */
  left:45%;
     top:25%;
     color: white;
     width:600px;
+     font-family: "quiet-sans", sans-serif;
+     font-size: 1.5rem;
 }
 
-h2{
-   font-family: "cc-altogether-ooky", sans-serif; 
-   font-size: 3rem; 
-   letter-spacing:5px;
-}
 
-h3{
-   font-size: 2rem; 
-   letter-spacing:1px;
+
+.ending-button button {
+    background-color: rgba(200, 10, 200, 0.5);
+    padding: 8px 40px;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    font-family: "quiet-sans", sans-serif;
+    border: none;         
+    cursor: pointer;
+    position: absolute;
+    left:60%;
+     top:70%;
+}    
+
+.ending-button button:hover{
+      box-shadow: 0px 3px 15px -4px #FFFFFF;
+    transform: scale(1.05);
 }
 
 
