@@ -79,21 +79,22 @@ if (verdictTitle && verdictReading){
         x: '600px',
     })
 
+
     deck.forEach((tarot, index) => { // adds flip animation to all tarot cards
-        if(tarot.parentElement != document.querySelector('.stack-cards')){ //ignores stack of cards
-            
-            // MIGHT MOVE TO CSS
-            stackDeck.style.zIndex = '-100' // NOTICE: THIS MADE STACK OF CARDS DISAPPEAR -touch base later
-            tarot.style.zIndex = `-${index}0` // move actual tarot cards to top of stack pile
-            tarot.style.cursor = 'pointer'
+        // MIGHT MOVE TO CSS
+        stackDeck.style.zIndex = '-100' // NOTICE: THIS MADE STACK OF CARDS DISAPPEAR -touch base later
+        tarot.style.zIndex = `-${index}0` // move actual tarot cards to top of stack pile
+        tarot.style.cursor = 'pointer'
 
 
-            cards.set(tarot, { // flip animation: ISSUE:: is pretty hardcoded translation & doesn't exactly align with the card-stack 
-                x: `-${(500+(200*(index-1)))}px`
-                ,rotation: Math.floor(Math.random() * 10) %2 == 0 ? Math.floor(Math.random() * 7) : -Math.floor(Math.random() * 7)
-                ,rotateY: -180
-            })
-            tarot.addEventListener('click', () => { 
+        cards.set(tarot, { // flip animation: ISSUE:: is pretty hardcoded translation & doesn't exactly align with the card-stack 
+            x: `-${(500+(200*(index-1)))}px`
+            ,rotation: Math.floor(Math.random() * 10) %2 == 0 ? Math.floor(Math.random() * 7) : -Math.floor(Math.random() * 7)
+            ,rotateY: -180
+        })
+
+        tarot.addEventListener('click', () => {
+            if(tarot.classList[1] != "flipped"){ // users can only flip cards once
                 cards.to(tarot, {
                     x: `0px`,
                     rotateY: 0 
@@ -113,7 +114,8 @@ if (verdictTitle && verdictReading){
                         x: '0px'
                     })
                 }
-            })
-        }
+            }
+            tarot.classList.add("flipped");
+        })
     });
 });
