@@ -80,6 +80,17 @@ app.get("/reading", async (req, res) => {
   res.send(onlyQuote)
 });
 
+// clears the db when the user is done so that the next submissin shows properly
+app.post("/cleardata", (req, res) => {
+  // three params:
+  // 1: {} deletes all records in the db file
+  // 2: multi:true, is required by nEdb ot delete multiple records at once
+  // 
+  database.remove({}, { multi: true }, (error, numRemoved) => {
+    res.redirect("/");
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
