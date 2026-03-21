@@ -47,38 +47,53 @@ app.get("/page3", (request, response) => {
 });
 
 
-app.post("/inquiry", (request, response) => {
-  let randomVerdict = verdict[Math.floor(Math.random() * verdict.length)]
 
-  let submission = {
-    name: request.body.name,
-    question: request.body.question,
-    reading: randomVerdict
-  };
+app.post("/inquiry", async (request, response) => {
 
-  database.insert(submission);
+  const reading1 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
+  const quote1 = await reading1.text();
+  const onlyQuote1 = quote1.split('(')[0];
+
+  await new Promise(resolve => setTimeout(resolve, 500));
+
+  const reading2 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
+  const quote2 = await reading2.text();
+  const onlyQuote2 = quote2.split('(')[0];
+
+  await new Promise(resolve => setTimeout(resolve, 500));
+
+  const reading3 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
+  const quote3 = await reading3.text();
+  const onlyQuote3 = quote3.split('(')[0];
+
+  database.insert({ 
+    name: request.body.name, 
+    question: request.body.question, 
+    reading: verdict[Math.floor(Math.random() * verdict.length)], 
+    quote1: onlyQuote1, 
+    quote2: onlyQuote2, 
+    quote3: onlyQuote3 
+  });
 
   response.redirect("/page2");
 });
-
-// add a start over rooute/ delete that clears teh database
 
 
 // connecting forismatic quote api (no key needed)
 // reading is the quote just in context of the project i used "reading"
 // use post? or get?
-app.get("/reading", async (req, res) => {
-  const reading = await fetch(
-    // pulls random quote based on 3 params:
-    // 1: method name
-    // 2: response format
-    // 3: response language 
-    "http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en"
-  );
-  const quote = await reading.text();
-  const onlyQuote = quote.split('(')[0]
-  res.send(onlyQuote)
-});
+// app.get("/reading", async (req, res) => {
+//   const reading = await fetch(
+//     // pulls random quote based on 3 params:
+//     // 1: method name
+//     // 2: response format
+//     // 3: response language 
+//     "http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en"
+//   );
+//   const quote = await reading.text();
+//   const onlyQuote = quote.split('(')[0]
+//   res.send(onlyQuote)
+// });
 
 // clears the db when the user is done so that the next submissin shows properly
 app.post("/cleardata", (req, res) => {
