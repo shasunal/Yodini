@@ -118,27 +118,5 @@ if (verdictTitle && verdictReading){
             tarot.classList.add("flipped");
         })
 
-        // if(tarot.classList[1] == "flipped"){
-
-        // }
-
-        // Hover animation attempt (poor)
-        // tarot.addEventListener("mouseenter", () => {
-        //     if(tarot.classList[1] == "flipped"){
-        //         cards.to(tarot, {
-        //             y: `-20px`,
-        //         })
-        //     }
-            
-        // })
-        // tarot.addEventListener("mouseleave", () => {
-        //     if(tarot.classList[1] == "flipped"){
-        //         cards.to(tarot, {
-        //             y: `0px`,
-        //         })
-        //     }
-        // })
-
-
     });
 });
