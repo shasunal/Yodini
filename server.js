@@ -29,7 +29,24 @@ app.get("/", (request, response) => {
 });
 
 app.get("/page2", (request, response) => {
-  response.render("page2.njk", { title: "Page 2" });
+
+let query = {};
+database.find(query, (error, foundData)=>{
+  if (error){
+    response.send('error');
+
+  } else{
+    let latestData = foundData[foundData.length -1];
+
+     response.render("page2.njk", { 
+    title: "Page 2", 
+    data: latestData
+
+   });
+  }
+})
+
+
 });
 
 app.get("/page3", (request, response) => {
