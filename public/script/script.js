@@ -42,27 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (intro) {
     typeWriter(intro, "I am the GREAT YODINI,\nand I have been expecting you~");
     }
-//Final verdict reading typing animation
-const verdictTitle = document.getElementById('verdictTitle');
-const verdictReading = document.getElementById('verdictReading');
+    //Final verdict reading typing animation
+    const verdictTitle = document.getElementById('verdictTitle');
+    const verdictReading = document.getElementById('verdictReading');
 
-//if these elements exist on the page
-if (verdictTitle && verdictReading){
-    //get the original text
-    const titleText = verdictTitle.textContent;
-    const readingText = verdictReading.textContent;
-//clear all text
-    verdictTitle.innerHTML = '';
-    verdictReading.innerHTML = '';
-//use typewriter function
-    typeWriter(verdictTitle,titleText,50);
-    //delaty seconf line by a little
-    setTimeout(()=>{
-        typeWriter(verdictReading,readingText, 35);
-    }, titleText.length * 50);
-}
-
-
+    //if these elements exist on the page
+    if (verdictTitle && verdictReading){
+        //get the original text
+        const titleText = verdictTitle.textContent;
+        const readingText = verdictReading.textContent;
+    //clear all text
+        verdictTitle.innerHTML = '';
+        verdictReading.innerHTML = '';
+    //use typewriter function
+        typeWriter(verdictTitle,titleText,50);
+        //delaty seconf line by a little
+        setTimeout(()=>{
+            typeWriter(verdictReading,readingText, 35);
+        }, titleText.length * 50);
+    }
 
 
     //tarot cards page2 get all elements
