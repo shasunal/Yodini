@@ -29,7 +29,24 @@ app.get("/", (request, response) => {
 });
 
 app.get("/page2", (request, response) => {
-  response.render("page2.njk", { title: "Page 2" });
+
+let query = {};
+database.find(query, (error, foundData)=>{
+  if (error){
+    response.send('error');
+
+  } else{
+    let latestData = foundData[foundData.length -1];
+
+     response.render("page2.njk", { 
+    title: "Page 2", 
+    data: latestData
+
+   });
+  }
+})
+
+
 });
 
 app.get("/page3", (request, response) => {
@@ -46,37 +63,63 @@ app.get("/page3", (request, response) => {
   });
 });
 
-
-
+// clean up old code
 app.post("/inquiry", async (request, response) => {
+  const quotes = [];
 
-  const reading1 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
-  const quote1 = await reading1.text();
-  const onlyQuote1 = quote1.split('(')[0];
+  for (let i = 0; i < 3; i++) {
+    // in api each quore is assigned a numeric key, max. is 6 digits long
+    // this should prevent possible quote duplicates
+    const randomKey = Math.floor(Math.random() * 999999);
+    const reading = await fetch(`http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en&key=${randomKey}`);
+    // this get rid of the quote author at the end of the text version of the data
+    const quote = (await reading.text()).split('(')[0];
+    quotes.push(quote);
 
-  await new Promise(resolve => setTimeout(resolve, 500));
-
-  const reading2 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
-  const quote2 = await reading2.text();
-  const onlyQuote2 = quote2.split('(')[0];
-
-  await new Promise(resolve => setTimeout(resolve, 500));
-
-  const reading3 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
-  const quote3 = await reading3.text();
-  const onlyQuote3 = quote3.split('(')[0];
+    if (i < 2) await new Promise(resolve => setTimeout(resolve, 500));
+  }
 
   database.insert({ 
     name: request.body.name, 
     question: request.body.question, 
     reading: verdict[Math.floor(Math.random() * verdict.length)], 
-    quote1: onlyQuote1, 
-    quote2: onlyQuote2, 
-    quote3: onlyQuote3 
+    quote1: quotes[0], 
+    quote2: quotes[1], 
+    quote3: quotes[2]
   });
 
   response.redirect("/page2");
 });
+
+// app.post("/inquiry", async (request, response) => {
+
+//   const reading1 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
+//   const quote1 = await reading1.text();
+//   const onlyQuote1 = quote1.split('(')[0];
+
+//   await new Promise(resolve => setTimeout(resolve, 500));
+
+//   const reading2 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
+//   const quote2 = await reading2.text();
+//   const onlyQuote2 = quote2.split('(')[0];
+
+//   await new Promise(resolve => setTimeout(resolve, 500));
+
+//   const reading3 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
+//   const quote3 = await reading3.text();
+//   const onlyQuote3 = quote3.split('(')[0];
+
+//   database.insert({ 
+//     name: request.body.name, 
+//     question: request.body.question, 
+//     reading: verdict[Math.floor(Math.random() * verdict.length)], 
+//     quote1: onlyQuote1, 
+//     quote2: onlyQuote2, 
+//     quote3: onlyQuote3 
+//   });
+
+//   response.redirect("/page2");
+// });
 
 
 // connecting forismatic quote api (no key needed)

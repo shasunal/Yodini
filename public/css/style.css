@@ -200,3 +200,28 @@ z-index: 1000;
     transform: scale(1.05);
 }
 
+
+.quotes-div{
+    position: absolute;
+    z-index: 2000;
+   bottom: 40px;
+   left:50%;
+   transform: translate(-50%);
+   text-align: center;
+   color: white;
+    font-size: 1.7rem;
+    width: 70%;
+    padding: 15px;
+
+    font-family: 'quiet-sans', sans-serif;
+   background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.quotes-div.show{
+    opacity: 1;
+}
