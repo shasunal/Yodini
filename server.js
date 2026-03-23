@@ -46,7 +46,7 @@ app.get("/page3", (request, response) => {
   });
 });
 
-// clean up old code
+// clean up old code, I used a for loop instead of doing each individual quote, and it will be called on through the index instead
 app.post("/inquiry", async (request, response) => {
   const quotes = [];
 
@@ -74,6 +74,8 @@ app.post("/inquiry", async (request, response) => {
   response.redirect("/page2");
 });
 
+
+// this version didn't work because it would create duplicate quotes
 // app.post("/inquiry", async (request, response) => {
 
 //   const reading1 = await fetch("http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en");
