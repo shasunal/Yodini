@@ -162,6 +162,16 @@ justify-content: center;
    font-size: 2rem;
      font-family: "quiet-sans", sans-serif;
      font-size: 1.5rem;
+
+     color: black;
+     background-image: URL('/images/chat.svg');
+     border-radius: 100px;
+     padding: 2% 4%;
+     background-size: cover;
+     background-position: center;
+     bottom: 60%;
+
+
 }
 .stack-card {
   cursor: pointer;
